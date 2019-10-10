@@ -3,7 +3,7 @@ using namespace std;
 
 #ifndef program_h
 #define program_h
-const int MAX_SIZE = 20;
+const int MAX_SIZE = 25;
 
 struct instruction {
 	string operation;
@@ -23,7 +23,7 @@ public:
 };
 #endif
 void program::insert(string temp) {
-	int x = temp.find('\n');
+	int x = temp.find(' ');
 	a[length].operation = temp.substr(0,x);
 	x = temp.length();
 	a[length].operand = temp[x];
