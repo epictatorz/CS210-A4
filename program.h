@@ -1,29 +1,31 @@
-#ifndef program_h
-#define program_h
-
-#include <iostream>
-#include <fstream>
 #include <string>
-#include <stdlib.h>
-
 using namespace std;
 
-const int MAX_SIZE = 50;
+#ifndef program_h
+#define program_h
+const int MAX_SIZE = 20;
 
-struct node
-{
-	node* next;
-	char dta;
+struct instruction {
+	string operation;
+	char* operand;
 };
 
-struct instructions {
-	int pc;
-	string op = "";
-	node* symbol;
+class program {
+	int p;
+	int length;
+	instruction a[MAX_SIZE];
+
+public:
+	program();
+	string read();
+	void write();
+	void insert (string);
 };
-
-string getFile();
-
-void readFile(string, instructions[MAX_SIZE]);
-
 #endif
+void program::insert(string temp) {
+	int x = temp.find('\n');
+	a[length].operation = temp.substr(0,x);
+	x = temp.length();
+	a[length].operand = temp[x];
+	length++;
+}
